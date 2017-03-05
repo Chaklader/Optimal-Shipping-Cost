@@ -1,5 +1,5 @@
-## Problem Description
-----------------------
+PROBLEM DESCRIPTION
+-------------------
 
 Suppose you have a network of friends and want to ship a package to any one of 
 your friends at the optimal (lowest) cost. As common in life, some of your friends 
@@ -14,7 +14,7 @@ that in your network, your friends may have other friends so an optimal shipping
 may not always be direct shipping from You to your friend, but perhaps through a number 
 of your friends. 
 
-To each of your friends you can ship a package of certain weight and dimensions at a 
+To each of your friends, you can ship a package of certain weight and dimensions at a
 fixed cost. The formula for computing the shipment is the same for all of your 
 friends in the network and is as follows:
 
@@ -29,10 +29,13 @@ A `volumetric weight` (sometimes called dimentional weight) is a formula often a
 carriers to take into account volume as a function of weight. A light package that 
 takes up a lot of space is just as difficult to ship as a small package that weighs a lot. 
 The volumetric formula is defined as:
+
+
 ```
 {Width x Length x Height}(cm) / 5000 = {Volumetric Weight}(kg) rounded up to the nearest 0,5kg
 ```
-A practical example of this is [DHL](http://wap.dhl.com/serv/volweight.html). For example, 
+
+A practical example of this is [DHL](http://wap.dhl.com/serv/volweight.html). For example,
 a package of `width=26cm, length=10cm and height=11cm` that weighs `400 grams` would 
 have a `normalized weight = 1kg` because volumetric weight defined as `2860/5000 = 0,572kg` 
 rounded up to the `nearest 0,5kg` is `1kg`.
@@ -74,32 +77,39 @@ possible from you to that friend.
 Your program should have a comprehensive documentation so that it's obvious and intuitive for 
 Allpago to run it. Provide unit tests. At minimum, you must provide a unit test capable of consuming a 
 `CSV` file with definition of a your friend network and expected results. The format of a file is:
+
 ```
 SOURCE,TARGET:HARD,TARGET:HARD ... 
 @,TARGET,PACKAGE,COST
 ```
-Both lines can appear multiple times. `SOURCE` is You or a friend for whom other friends and 
+
+Both lines can appear multiple times. `SOURCE` is You or a friend for whom other friends and
 their respective hardness relationship is defined. You are always represented by the string 
 `ME`. Your friends are always represented by first name. Friends with same first name are appended 
 a differentiator such as a sequence (Jessica1, Jessica2, Jessica3, etc). For example, you could 
 define your friend network in a `CSV` like this:
+
+
 ```
 ME,Lisa:33,Peter:123,John:55 
 Lisa,John:3 
 Diana,Peter:11
 ```
-Given example above, you have three friends: Lisa, Peter and John. You can ship to Lisa @ `33 HARD`, 
+
+Given example above, you have three friends: Lisa, Peter and John. You can ship to Lisa @ `33 HARD`,
 to Peter @ `123 HARD` and to John @ `55 HARD`. In addition, Lisa shipment to John is `3 HARD` 
 and Diana can ship to Peter @ `11 HARD`. You cannot ship to Diana.
 
 If the line begins with the `@` symbol, then it is an assertion line which means you are given 
 a scenario which your test must pass. Each scenario will always be the correct shipping cost from You 
 to someone in your network given package information. For example:
+
 ```
 @,Lisa,5x6x7x1200,6.89 
 @,Diana,6x10x8x1233,~
 ```
-The first assertion states that a shipping cost for a `1.2kg (width=10cm, length=9cm, height=5cm)` 
+
+The first assertion states that a shipping cost for a `1.2kg (width=10cm, length=9cm, height=5cm)`
 package to Lisa should be `6.89 EUR`. The second assertion states that it's impossible to ship a 
 package to Diana so the cost is a positive infinity.
 
