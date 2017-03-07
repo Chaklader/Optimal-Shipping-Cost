@@ -10,8 +10,9 @@ import java.util.Objects;
 public class Vertex {
 
     final private String name;
-    final private Map<Vertex, Edge> edges = new HashMap<>();
 
+    // edges map get the destination vortex for the respective edge
+    final private Map<Vertex, Edge> edges = new HashMap<>();
 
     public Vertex(final String name) {
         this.name = name;
@@ -50,6 +51,7 @@ public class Vertex {
         return edges.get(dest);
     }
 
+    // get the edge by the destination vortex name
     public Edge getEdge(final String dest) {
         return edges.get(new Vertex(dest));
     }

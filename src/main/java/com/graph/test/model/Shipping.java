@@ -7,6 +7,7 @@ import java.util.List;
  * Created by Chaklader on 3/5/17.
  */
 public class Shipping {
+
     private ShippingParameters params;
     private List<Vertex> path = Collections.emptyList();
 

@@ -48,9 +48,10 @@ public class Graph {
 //        }
 
         public void addEdge(final String source, final String destination, final int hard) {
-            Vertex src = getOrCreateVertex(source);
 
+            Vertex src = getOrCreateVertex(source);
             Vertex dest = vertexMap.get(destination);
+
             if (dest == null) {
                 dest = addVertex(destination);
             } else {

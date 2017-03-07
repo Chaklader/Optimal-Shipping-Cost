@@ -3,7 +3,6 @@ package com.graph.test.service;
 import com.graph.test.model.Edge;
 import com.graph.test.model.Graph;
 import com.graph.test.model.Vertex;
-
 import java.util.*;
 
 /**
@@ -25,6 +24,21 @@ public class DijkstraPathFinder implements PathFinder{
         execute(source);
     }
 
+    private void execute(Vertex source) {
+        settledNodes = new HashSet<Vertex>();
+        unSettledNodes = new HashSet<Vertex>();
+        distance = new HashMap<Vertex, Integer>();
+        predecessors = new HashMap<Vertex, Vertex>();
+        distance.put(source, 0);
+        unSettledNodes.add(source);
+        while (unSettledNodes.size() > 0) {
+            Vertex node = getMinimum(unSettledNodes);
+            settledNodes.add(node);
+            unSettledNodes.remove(node);
+            findMinimalDistances(node);
+        }
+    }
+
     @Override
     public List<Vertex> getPath(final String target) {
         LinkedList<Vertex> path = new LinkedList<Vertex>();
@@ -41,21 +55,6 @@ public class DijkstraPathFinder implements PathFinder{
         // Put it into the correct order
         Collections.reverse(path);
         return path;
-    }
-
-    private void execute(Vertex source) {
-        settledNodes = new HashSet<Vertex>();
-        unSettledNodes = new HashSet<Vertex>();
-        distance = new HashMap<Vertex, Integer>();
-        predecessors = new HashMap<Vertex, Vertex>();
-        distance.put(source, 0);
-        unSettledNodes.add(source);
-        while (unSettledNodes.size() > 0) {
-            Vertex node = getMinimum(unSettledNodes);
-            settledNodes.add(node);
-            unSettledNodes.remove(node);
-            findMinimalDistances(node);
-        }
     }
 
     private void findMinimalDistances(Vertex node) {

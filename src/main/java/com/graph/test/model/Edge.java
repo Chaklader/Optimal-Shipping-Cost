@@ -22,12 +22,13 @@ public class Edge {
     public Vertex getSource() {
         return source;
     }
+
     public int getWeight() {
         return weight;
     }
 
     @Override
     public String toString() {
-        return source + " " + destination;
+        return source + " -> " + destination;
     }
 }

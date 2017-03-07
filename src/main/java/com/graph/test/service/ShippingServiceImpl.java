@@ -10,7 +10,7 @@ import java.util.Optional;
 /**
  * Created by Chaklader on 3/5/17.
  */
-public class ShippingServiceImpl implements ShippingService{
+public class ShippingServiceImpl implements ShippingService {
 
     private PathFinder pathFinder;
 

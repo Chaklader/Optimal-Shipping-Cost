@@ -4,6 +4,7 @@ package com.graph.test.model;
  * Created by Chaklader on 3/5/17.
  */
 public class ShippingParameters {
+
     private static final int VOLUMETRIC_CONSTANT = 5000;
 
     private String target;
@@ -37,7 +38,7 @@ public class ShippingParameters {
     }
 
     protected double getVolumetricWeight() {
-        double volumetricWeight = ((double)(width * length * height)) / VOLUMETRIC_CONSTANT;
+        double volumetricWeight = ((double) (width * length * height)) / VOLUMETRIC_CONSTANT;
         return roundUp(volumetricWeight);
     }
 
