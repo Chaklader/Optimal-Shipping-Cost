@@ -8,7 +8,14 @@ import java.util.*;
 /**
  * Created by Chaklader on 3/5/17.
  */
-public class DijkstraPathFinder implements PathFinder{
+
+
+/*
+* Dijkstra's Algorithm is a graph search algorithm that solves the single-source
+* shortest path problem for a graph with non-negative edge path costs, producing
+* a shortest path tree.
+* */
+public class DijkstraPathFinder implements PathFinder {
 
     private final Graph graph;
     private final List<Edge> edges;
@@ -41,17 +48,21 @@ public class DijkstraPathFinder implements PathFinder{
 
     @Override
     public List<Vertex> getPath(final String target) {
+
         LinkedList<Vertex> path = new LinkedList<Vertex>();
         Vertex step = graph.getVertex(target);
+
         // check if a path exists
         if (predecessors.get(step) == null) {
             return Collections.emptyList();
         }
+
         path.add(step);
         while (predecessors.get(step) != null) {
             step = predecessors.get(step);
             path.add(step);
         }
+
         // Put it into the correct order
         Collections.reverse(path);
         return path;

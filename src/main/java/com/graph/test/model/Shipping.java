@@ -9,6 +9,7 @@ import java.util.List;
 public class Shipping {
 
     private ShippingParameters params;
+
     private List<Vertex> path = Collections.emptyList();
 
     public Shipping(ShippingParameters params) {
