@@ -24,7 +24,7 @@ friends in the network and is as follows:
 
 The cost is represented to the nearest two decimals (eg: 24,33 EUR).
 
-Normalized package weight =  grater of { i.actual weight and ii. volumetric weight }
+Normalized package weight =  Greater of { i.actual weight and ii. volumetric weight }
 
 A `volumetric weight` (sometimes called dimentional weight) is a formula often applied by 
 carriers to take into account volume as a function of weight. A light package that 
